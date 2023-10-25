@@ -40,7 +40,7 @@ class node:
         """Returns the link of the calling node.
 
         Returns:
-            _type_: link of the node
+            node: link of the node
         """
 
         return self.__link
@@ -49,9 +49,16 @@ class node:
         """Sets the link of the calling node to the specified link.
 
         Args:
-            link (_type_): specified link
+            link (node): specified link
         """
 
         self.__link = link
 
-    
+    def addNodeAfter(self, element):
+        """Adds a new node after the calling node using the specified element.
+
+        Args:
+            element (_type_): specified element
+        """
+
+        self.__link = node(element, self.__link)
