@@ -62,3 +62,8 @@ class node:
         """
 
         self.__link = node(element, self.__link)
+
+    def removeNodeAfter(self):
+        """Removes the node after the calling node."""
+
+        self.__link = self.__link.__link
