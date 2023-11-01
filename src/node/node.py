@@ -67,3 +67,67 @@ class node:
         """Removes the node after the calling node."""
 
         self.__link = self.__link.__link
+
+    @staticmethod
+    def listLength(head):
+        """COmputes and returns the number of nodes in a specified node.
+
+        Args:
+            head (node): specified head
+
+        Returns:
+            int: number of nodes in the specified node
+        """
+
+        cursor = head # cursor used to step through the specified node
+        length = 0 # used to count the number of nodes in the specified node
+
+        while cursor != None:
+            # increment length
+            length += 1
+
+            # move cursor to the next node
+            cursor = cursor.getLink()
+
+        return length
+    
+    @staticmethod
+    def listSearch(head, target):
+        """Searches for a specified target in a specified node.
+
+        Args:
+            head (node): specified head
+            target: specified target
+
+        Returns:
+            node: reference to node that contains specified target value
+            if specified target is found, else None 
+        """
+
+        cursor = head # cursor used to step through the specified node
+
+        while cursor != None:
+            if cursor.getData() == target:
+                return cursor
+            else:
+                cursor = cursor.getLink()
+        
+        return None
+    
+    @staticmethod
+    def listPosition(head, position: int):
+        """Searches for a node in a specified node based on a specified position.
+
+        Args:
+            head (node): specified head
+            position (int): specified position
+
+        Raises:
+            ValueError: if specified position is less than one
+
+        Returns:
+            node: reference to node at specified position if specified position is found,
+            else None
+        """
+
+        
