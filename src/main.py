@@ -7,7 +7,104 @@ def main():
     #testRemoveNodeAfter()
     #review()
     #testListLength()
-    testListSearch()
+    #testListSearch()
+    #testListPosition()
+    #testListCopy()
+    testListCopyWithTail()
+
+def testListCopyWithTail():
+    print("Testing List Copy With Tail")
+
+    # construct node with data equal to S and link
+    # equal to None and assign its reference to source
+    source = node('S', None) # S
+
+    # construct node with data equal to B and link equal to source
+    # and assign its reference to source
+    source = node('B', source) # B -> S
+
+    # construct node with data equal to O and link equal to source
+    # and assign its reference to source
+    source = node('O', source) # O -> B -> S
+
+    # construct node with data equal to J and link equal to source
+    # and assign its reference to source
+    source = node('J', source) # J -> O -> B -> S
+
+    copy = node.listCopyWithTail(source)
+    # [J -> O -> B -> S, S]
+
+    print("Source contains", node.listPosition(source, 1).getData(),
+        node.listPosition(source, 2).getData(),
+        node.listPosition(source, 3).getData(),
+        node.listPosition(source, 4).getData())
+    
+    print("Copy head contains", node.listPosition(copy[0], 1).getData(),
+        node.listPosition(copy[0], 2).getData(),
+        node.listPosition(copy[0], 3).getData(),
+        node.listPosition(copy[0], 4).getData())
+
+    print("Copy tail contains", node.listPosition(copy[1], 1).getData())
+
+def testListCopy():
+    print("Testing List Copy")
+
+    # construct node with data equal to S and link
+    # equal to None and assign its reference to source
+    source = node('S', None) # S
+
+    # construct node with data equal to B and link equal to source
+    # and assign its reference to source
+    source = node('B', source) # B -> S
+
+    # construct node with data equal to O and link equal to source
+    # and assign its reference to source
+    source = node('O', source) # O -> B -> S
+
+    # construct node with data equal to J and link equal to source
+    # and assign its reference to source
+    source = node('J', source) # J -> O -> B -> S
+
+    copy = node.listCopy(source)
+
+    print("Source contains", node.listPosition(source, 1).getData(),
+        node.listPosition(source, 2).getData(),
+        node.listPosition(source, 3).getData(),
+        node.listPosition(source, 4).getData())
+    
+    print("Copy contains", node.listPosition(copy, 1).getData(),
+        node.listPosition(copy, 2).getData(),
+        node.listPosition(copy, 3).getData(),
+        node.listPosition(copy, 4).getData())
+
+def testListPosition():
+    print("Testing List Position")
+
+    # construct node with data equal to S and link
+    # equal to None and assign its reference to head
+    head = node('S', None) # S
+
+    # construct node with data equal to B and link equal to head
+    # and assign its reference to head
+    head = node('B', head) # B -> S
+
+    # construct node with data equal to O and link equal to head
+    # and assign its reference to head
+    head = node('O', head) # O -> B -> S
+
+    # construct node with data equal to J and link equal to head
+    # and assign its reference to head
+    head = node('J', head) # J -> O -> B -> S
+
+    print("First node contains data:", node.listPosition(head, 1).getData()) # J -> O -> B -> S
+    print("Second node contains data:", node.listPosition(head, 2).getData()) # O -> B -> S
+    print("Third node contains data:", node.listPosition(head, 3).getData()) # B -> S
+    print("Fourth node contains data:", node.listPosition(head, 4).getData()) # S
+
+    if(node.listPosition(head, 5) != None):
+        print("Fifth node contains data:", node.listPosition(head, 5).getData())
+    else:
+        print("Fifth node does not exist.")
 
 def testListSearch():
     print("Testing List Length")
@@ -37,8 +134,6 @@ def testListSearch():
         print("Head contains: ", node.listSearch(head, "Z").getData())
     else:
         print("Head does not contain Z.")
-
-
 
 def testListLength():
     print("Testing List Length")
