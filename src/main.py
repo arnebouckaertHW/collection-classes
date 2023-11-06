@@ -10,7 +10,109 @@ def main():
     #testListSearch()
     #testListPosition()
     #testListCopy()
-    testListCopyWithTail()
+    #testListCopyWithTail()
+    testPracticeAssignment()
+
+def testPracticeAssignment():
+    # Question 1
+    head = node('T', None)
+    head = node('K', head)
+    head = node('N', head)
+    head = node('I', head)
+    head = node('L', head)
+
+    # Question 2
+    selection = head
+
+    # Question 3
+    selection = selection.getLink()
+    selection = selection.getLink()
+    selection = selection.getLink()
+
+    # Question 4
+    selection.addNodeAfter('E')
+
+    # Question 5
+    selection = selection.getLink()
+
+    # Question 6
+    selection.addNodeAfter('D')
+
+    # Question 7
+    selection = selection.getLink()
+
+    # Question 8
+    selection.addNodeAfter('L')
+
+    # Question 9
+    selection = selection.getLink()
+
+    # Question 10
+    selection.addNodeAfter('I')
+
+    # Question 11
+    selection = selection.getLink()
+
+    # Question 12
+    selection.addNodeAfter('S')
+
+    # Question 13
+    print("How many nodes does head contain?", node.listLength(head))
+    print("How many nodes does selection contain?", node.listLength(selection))
+
+    # Question 14
+    tail = selection
+
+    # Question 15
+    tail = tail.getLink()
+    tail = tail.getLink()
+
+    # Question 16
+    print("How many nodes does tail contain?", node.listLength(tail))
+
+    # Question 17
+    tail = node.listCopy(tail)
+    selection.removeNodeAfter()
+    selection.removeNodeAfter()
+
+    # Question 18
+    print("How many nodes does head contain?", node.listLength(head))
+    print("How many nodes does selection contain?", node.listLength(selection))
+    print("How many nodes does tail contain?", node.listLength(tail))
+
+    # Question 19
+    head.removeNodeAfter()
+    head.removeNodeAfter()
+
+    # Question 20
+    tail = None
+
+    # Question 21
+    print("How many nodes does head contain?", node.listLength(head))
+    print("How many nodes does selection contain?", node.listLength(selection))
+    print("How many nodes does tail contain?", node.listLength(tail))
+
+    # Question 22
+    print("Head contains the letter", node.listSearch(head, 'K').getData())
+    print("Selection contains the letter", node.listSearch(selection, 'I').getData())
+
+    # Question 23
+    copy = node.listCopyWithTail(head)
+    print(f"Copy[0] contains {node.listLength(copy[0])} nodes")
+    print(f"Copy[1] contains {node.listLength(copy[1])} nodes")
+
+    # Question 24
+    print("First node in copy[0] contains letter", copy[0].getData())
+    print("First node in copy[1] contains letter", copy[1].getData())
+
+    # Question 25
+    i = 1
+    while i <= 10:
+        if(node.listPosition(head, i) != None):
+            print(f"Head contains position {i}")
+        else:
+            print(f"Head doesn't contain position {i}")
+        i += 1
 
 def testListCopyWithTail():
     print("Testing List Copy With Tail")
