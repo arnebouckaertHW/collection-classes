@@ -1,18 +1,34 @@
 from node.node import *
+from stack.stack import *
 
 def main():
-    #testInit()
-    #testGettersAndSetters()
-    #testAddNodeAfter()
-    #testRemoveNodeAfter()
-    #review()
-    #testListLength()
-    #testListSearch()
-    #testListPosition()
-    #testListCopy()
-    #testListCopyWithTail()
-    #testPracticeAssignment()
-    assignment()
+    testPush()
+
+def testPush():
+    print("Testing Stack Push")
+
+    s = stack()
+    print("Stack size:", s.size()) # 0
+    print("Stack contains:", s) # []
+
+    s.push('S')
+    print("Stack size:", s.size()) # 1
+    print("Stack contains:", s) # [S]
+
+    #s.push('B')
+    s.push(1)
+    print("Stack size:", s.size()) # 2
+    print("Stack contains:", s) # [B S]
+
+    #s.push('O')
+    s.push((1,2))
+    print("Stack size:", s.size()) # 3
+    print("Stack contains:", s) # [O B S]
+
+    #s.push('J')
+    s.push([1,2,3])
+    print("Stack size:", s.size()) # 4
+    print("Stack contains:", s) # [J O B S]
 
 def assignment():
     # Question 1
@@ -87,7 +103,6 @@ def assignment():
         print("Copy[1] contains character", node.listSearch(copy[1], 1).getData())
     else:
         print("Copy[1] doesn't contain character 1")
-
 
 def testPracticeAssignment():
     # Question 1
