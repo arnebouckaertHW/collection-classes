@@ -70,7 +70,7 @@ class node:
 
     @staticmethod
     def listLength(head):
-        """COmputes and returns the number of nodes in a specified node.
+        """Computes and returns the number of nodes in a specified node.
 
         Args:
             head (node): specified head

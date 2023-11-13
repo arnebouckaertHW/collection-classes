@@ -1,8 +1,84 @@
 from node.node import *
 from stack.stack import *
+from stack.balancedparens import *
 
 def main():
-    testPush()
+    print("Parantheses are balanced?", balancedparens.isBalanced("{X+Y")) # False
+    print("Parantheses are balanced?", balancedparens.isBalanced("{X+Y)")) # False
+    print("Parantheses are balanced?", balancedparens.isBalanced("({X+Y}*Z)")) # True
+    print("Parantheses are balanced?", balancedparens.isBalanced("[A+B]*({X+Y}*Z)")) # True
+
+def testPeek():
+    print("Testing Stack Peek")
+
+    s = stack()
+    print("Stack size:", s.size()) # 0
+    print("Stack contains:", s) # []
+
+    s.push("S")
+    print("Stack size:", s.size()) # 1
+    print("Stack contains:", s) # [S]
+    print("Top element in stack is:", s.peek()) # S
+
+    s.push("B")
+    print("Stack size:", s.size()) # 2
+    print("Stack contains:", s) # [B S]
+    print("Top element in stack is:", s.peek()) # B
+
+    s.push("O")
+    print("Stack size:", s.size()) # 3
+    print("Stack contains:", s) # [O B S]
+    print("Top element in stack is:", s.peek()) # O
+
+    s.push("J")
+    print("Stack size:", s.size()) # 4
+    print("Stack contains:", s) # [J O B S]
+    print("Top element in stack is:", s.peek()) # J
+
+def testIsEmpty():
+    print("Testing Stack Is Empty")
+
+    s = stack()
+    s.push('S')
+    s.push('B')
+    s.push('O')
+    s.push('J')
+
+    print("Stack size:", s.size()) # 4
+    print("Stack contains:", s) # [J O B S]
+
+    while(not s.isEmpty()):
+        print("Just popped:", s.pop())
+
+    print("Stack size:", s.size()) # 0
+    print("Stack contains:", s) # []
+
+def testPop():
+    print("Testing Stack Pop")
+
+    s = stack()
+    s.push('S')
+    s.push('B')
+    s.push('O')
+    s.push('J')
+
+    print("Stack size:", s.size()) # 4
+    print("Stack contains:", s) # [J O B S]
+    print("Just popped:", s.pop()) # J
+
+    print("Stack size:", s.size()) # 3
+    print("Stack contains:", s) # [O B S]
+    print("Just popped:", s.pop()) # O
+
+    print("Stack size:", s.size()) # 2
+    print("Stack contains:", s) # [B S]
+    print("Just popped:", s.pop()) # B
+
+    print("Stack size:", s.size()) # 1
+    print("Stack contains:", s) # [S]
+    print("Just popped:", s.pop()) # S
+
+    print("Just popped:", s.pop()) # this line of code will generate a value error: Stack is empty
 
 def testPush():
     print("Testing Stack Push")
