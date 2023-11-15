@@ -1,6 +1,6 @@
 class node:
     """The node class holds a collection of values using nodes. It includes
-     methods that allow the nodes to be manipulated and modified.
+    methods that allow the nodes to be manipulated and modified.
     """
 
     def __init__(self, data, link):

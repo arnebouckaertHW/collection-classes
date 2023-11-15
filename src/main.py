@@ -1,12 +1,62 @@
 from node.node import *
 from stack.stack import *
 from stack.balancedparens import *
+from stack.calculator import *
+from stack.serialsearch import *
 
 def main():
-    print("Parantheses are balanced?", balancedparens.isBalanced("{X+Y")) # False
-    print("Parantheses are balanced?", balancedparens.isBalanced("{X+Y)")) # False
-    print("Parantheses are balanced?", balancedparens.isBalanced("({X+Y}*Z)")) # True
-    print("Parantheses are balanced?", balancedparens.isBalanced("[A+B]*({X+Y}*Z)")) # True
+    # print("Parantheses are balanced?", balancedparens.isBalanced("{X+Y")) # False
+    # print("Parantheses are balanced?", balancedparens.isBalanced("{X+Y)")) # False
+    # print("Parantheses are balanced?", balancedparens.isBalanced("({X+Y}*Z)")) # True
+    # print("Parantheses are balanced?", balancedparens.isBalanced("[A+B]*({X+Y}*Z)")) # True
+    # print("(((6+9)/3)*(6-4)) =", calculator.evaluate("(((6+9)/3)*(6-4))")) # 10.0
+    # print("(6+(3*(6-4))) =", calculator.evaluate("(6+(3*(6-4)))")) # 12.0
+    # print("((5+2)-(3*(6/9))) =", calculator.evaluate("((5+2)-(3*(6/9)))")) # 5.0
+    # print("((5*2)-(3*(6/2))) =", calculator.evaluate("((5*2)-(3*(6/2)))")) # 1.0
+    testSerialSearch()
+
+def testSerialSearch():
+    # create an empty stack
+    s = stack()
+
+    # initialize first
+    first = 1
+
+    # initialize size
+    size = 0
+
+    # initialize target
+    target = 70
+
+    # push -7 onto the top of the stack
+    s.push(-7)
+
+    # push 42 onto the top of the stack
+    s.push(42)
+
+    # push 70 onto the top of the stack
+    s.push(70)
+
+    # push 39 onto the top of the stack
+    s.push(39)
+
+    # push 3 onto the top of the stack
+    s.push(3)
+
+    # push 63 onto the top of the stack
+    s.push(63)  
+
+    # push 8 onto the top of the stack
+    s.push(8)
+
+    # print the stack
+    print("Stack contains:", s) # [8 63 3 39 70 42 -7]
+
+    # call serial search method and display its return.
+    print("The target is at position:", serialsearch(s, first, size + 7, target)) # 5
+    print("The target is at position:", serialsearch(s, first, size + 4, target)) # -1
+    print("The target is at position:", serialsearch(s, first + 5, size + 2, target)) # -1
+
 
 def testPeek():
     print("Testing Stack Peek")
