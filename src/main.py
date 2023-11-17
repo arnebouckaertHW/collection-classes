@@ -16,6 +16,8 @@ def main():
     # print("((5*2)-(3*(6/2))) =", calculator.evaluate("((5*2)-(3*(6/2)))")) # 1.0
     #testSerialSearch()
     testInsertionSort(1)
+    testInsertionSort(4)
+    testInsertionSort(6)
 
 
 def testInsertionSort(first: int):
