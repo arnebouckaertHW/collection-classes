@@ -27,7 +27,7 @@ def serialsearch(a: stack, first: int, size: int, target):
     # while there are more elements to search
     # and the target has not been found
     # and i plus first does not exceed the length of the list
-    while i < size and not found and (i + first < a.size()):
+    while i <= size and not found and (i + first <= a.size() + 1):
         # if the current element is the target
         if node.listPosition(a.getHead(), i).getData() == target:
             # set found to True

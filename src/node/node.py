@@ -232,3 +232,39 @@ class node:
         
         # return copy head and copy tail
         return [copyHead, copyTail]
+    
+    @staticmethod
+    def setDataAtPosition(self, position: int, data):
+        """Sets the data value stored in the calling node at the specified position
+        to the specified data value.
+
+        Args:
+            position (int): specified position
+            data: specified data value
+        
+        Raises:
+            ValueError: indicates position is less than one
+        """
+        cursor = self # used to step through calling node
+        i = 1 # used to count nodes
+        try:
+            # if position is less than one, raise error
+            if (position < 1):
+                raise ValueError("Position may not be less than 1.")
+        except ValueError as e:
+            # display error and exit
+            exit(e)
+        else:
+            # move cursor forward the correct number nodes
+            # keep looping as long as i is less than specified position
+            # and cursor isn't equal to None
+            # if cursor becomes None that means specified position was greater than
+            # number of nodes in specified node
+            while ((i < position) and (cursor != None)):
+                # move cursor to next node
+                cursor = cursor.getLink()
+                # increment counter
+                i = i + 1
+
+        # set data value in node cursor refers to
+        cursor.setData(data)

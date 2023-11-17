@@ -3,6 +3,7 @@ from stack.stack import *
 from stack.balancedparens import *
 from stack.calculator import *
 from stack.serialsearch import *
+from stack.insertionsort import *
 
 def main():
     # print("Parantheses are balanced?", balancedparens.isBalanced("{X+Y")) # False
@@ -13,7 +14,46 @@ def main():
     # print("(6+(3*(6-4))) =", calculator.evaluate("(6+(3*(6-4)))")) # 12.0
     # print("((5+2)-(3*(6/9))) =", calculator.evaluate("((5+2)-(3*(6/9)))")) # 5.0
     # print("((5*2)-(3*(6/2))) =", calculator.evaluate("((5*2)-(3*(6/2)))")) # 1.0
-    testSerialSearch()
+    #testSerialSearch()
+    testInsertionSort(1)
+
+
+def testInsertionSort(first: int):
+    # create an empty stack
+    s = stack()
+
+    # initialize first
+    # see parameter
+
+    # push -7 onto the top of the stack
+    s.push(-7)
+
+    # push 42 onto the top of the stack
+    s.push(42)
+
+    # push 70 onto the top of the stack
+    s.push(70)
+
+    # push 39 onto the top of the stack
+    s.push(39)
+
+    # push 3 onto the top of the stack
+    s.push(3)
+
+    # push 63 onto the top of the stack
+    s.push(63)
+
+    # push 8 onto the top of the stack
+    s.push(8)
+
+    # print unsorted stack
+    print("Stack contains:", s)
+
+    # call insertion sort method
+    insertionsort.insertionsort(s, first)
+
+    # print sorted stack
+    print("Stack contains:", s)
 
 def testSerialSearch():
     # create an empty stack
