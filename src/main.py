@@ -4,6 +4,7 @@ from stack.balancedparens import *
 from stack.calculator import *
 from stack.serialsearch import *
 from stack.insertionsort import *
+from queues.queue import *
 
 def main():
     # print("Parantheses are balanced?", balancedparens.isBalanced("{X+Y")) # False
@@ -15,10 +16,106 @@ def main():
     # print("((5+2)-(3*(6/9))) =", calculator.evaluate("((5+2)-(3*(6/9)))")) # 5.0
     # print("((5*2)-(3*(6/2))) =", calculator.evaluate("((5*2)-(3*(6/2)))")) # 1.0
     #testSerialSearch()
-    testInsertionSort(1)
-    testInsertionSort(4)
-    testInsertionSort(6)
+    #testInsertionSort(1)
+    #testInsertionSort(4)
+    #testInsertionSort(6)
+    testEnqueue()
+    testDequeue()
+    testQueueIsEmpty()
+    testQueuePeek()
 
+def testQueuePeek():
+    print("Testing Queue Peek")
+
+    q = queue()
+    print("Queue size:", q.size()) # 0
+    print("Queue contains:", q) # []
+
+    q.enqueue("J")
+    print("Queue size:", q.size()) # 1
+    print("Queue contains:", q) # [J]
+    print("Front element in queue is:", q.peek()) # J
+
+    q.enqueue("O")
+    print("Queue size:", q.size()) # 2
+    print("Queue contains:", q) # [J O]
+    print("Front element in queue is:", q.peek()) # J
+
+    q.enqueue("B")
+    print("Queue size:", q.size()) # 3
+    print("Queue contains:", q) # [J O B]
+    print("Front element in queue is:", q.peek()) # J
+
+    q.enqueue("S")
+    print("Queue size:", q.size()) # 4
+    print("Queue contains:", q) # [J O B S]
+    print("Front element in queue is:", q.peek()) # J
+
+def testQueueIsEmpty():
+    print("Testing Queue Is Empty")
+
+    q = queue()
+    q.enqueue('J')
+    q.enqueue('O')
+    q.enqueue('B')
+    q.enqueue('S')
+
+    print("Queue size:", q.size()) # 4
+    print("Queue contains:", q) # [J O B S]
+
+    while(not q.isEmpty()):
+        print("Just dequeued:", q.dequeue())
+
+    print("Queue size:", q.size()) # 0
+    print("Queue contains:", q) # []
+
+def testDequeue():
+    print("Testing Queue Dequeue")
+
+    q = queue()
+    q.enqueue('J')
+    q.enqueue('O')
+    q.enqueue('B')
+    q.enqueue('S')
+
+    print("Queue size:", q.size()) # 4
+    print("Queue contains:", q) # [J O B S]
+    print("Just dequeued:", q.dequeue()) # J
+
+    print("Queue size:", q.size()) # 3
+    print("Queue contains:", q) # [O B S]
+    print("Just dequeued:", q.dequeue()) # O    
+
+    print("Queue size:", q.size()) # 2
+    print("Queue contains:", q) # [B S]
+    print("Just dequeued:", q.dequeue()) # B
+
+    print("Queue size:", q.size()) # 1
+    print("Queue contains:", q) # [S]
+    print("Just dequeued:", q.dequeue()) # S
+
+def testEnqueue():
+    print("Testing Queue Enqueue")
+
+    q = queue()
+    print("Queue size:", q.size()) # 0
+    print("Queue contains:", q) # []
+
+    q.enqueue('J')
+    print("Queue size:", q.size()) # 1
+    print("Queue contains:", q) # [J]
+
+    q.enqueue('O')
+    print("Queue size:", q.size()) # 2
+    print("Queue contains:", q) # [J O]
+
+    q.enqueue('B')
+    print("Queue size:", q.size()) # 3
+    print("Queue contains:", q) # [J O B]
+
+    q.enqueue('S')
+    print("Queue size:", q.size()) # 4
+    print("Queue contains:", q) # [J O B S]
 
 def testInsertionSort(first: int):
     # create an empty stack
@@ -98,7 +195,6 @@ def testSerialSearch():
     print("The target is at position:", serialsearch(s, first, size + 7, target)) # 5
     print("The target is at position:", serialsearch(s, first, size + 4, target)) # -1
     print("The target is at position:", serialsearch(s, first + 5, size + 2, target)) # -1
-
 
 def testPeek():
     print("Testing Stack Peek")
