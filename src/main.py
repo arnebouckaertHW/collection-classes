@@ -6,6 +6,7 @@ from stack.serialsearch import *
 from stack.insertionsort import *
 from queues.queue import *
 from queues.palindrome import *
+from queues.queuepalindrome import *
 
 def main():
     # print("Parantheses are balanced?", balancedparens.isBalanced("{X+Y")) # False
@@ -20,7 +21,21 @@ def main():
     #testInsertionSort(1)
     #testInsertionSort(4)
     #testInsertionSort(6)
-    testIsPalindrome()
+    testQueueIsPalindrome()
+
+def testQueueIsPalindrome():
+    print("Testing Is Palindrome")
+    exp = input("Please enter an expression:")
+
+    while exp != "":
+        if queuePalindrome.isPalindrome(exp):
+            print("The expression is a palindrome.")
+        else:
+            print("The expression is not a palindrome.")
+
+        exp = input("Please enter an expression:")
+    
+    print("Good bye!")
 
 def testIsPalindrome():
     print("Testing Is Palindrome")
