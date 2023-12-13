@@ -8,6 +8,8 @@ from queues.queue import *
 from queues.palindrome import *
 from queues.queuepalindrome import *
 from queues.advancedpalindrome import *
+from loops import *
+from recursion import *
 
 def main():
     # print("Parantheses are balanced?", balancedparens.isBalanced("{X+Y")) # False
@@ -23,7 +25,74 @@ def main():
     #testInsertionSort(4)
     #testInsertionSort(6)
     #testQueueIsPalindrome()
-    testAdvancedIsPalindrome()
+    #testAdvancedIsPalindrome()
+    santaClaus()
+    getPalindromes()
+    testRecursion()
+
+def testRecursion():
+    print("Final Exam Recursion")
+
+    # Question 7
+    print("LOOP")
+    loops.evens(-10, 10)
+    print()
+    print("RECURSION")
+    recursion.evens(-10, 10)
+
+def getPalindromes():
+    print("Final Exam Stacks & Queues")
+
+    # Question 6
+    palindromes = stack()
+    nonPalindromes = stack()
+    expressions = list(map(str, input("Please enter ten words seperated by a space:").split()))
+
+    for exp in expressions:
+        if palindrome.isPalindrome(exp):
+            palindromes.push(exp)
+        else:
+            nonPalindromes.push(exp)
+
+    nonPalindromeStr = ""
+
+    tempStack = stack()
+    while(not nonPalindromes.isEmpty()):
+        tempStack.push(nonPalindromes.pop())
+    
+    while(not tempStack.isEmpty()):
+        nonPalindromeStr += tempStack.pop() + " "
+
+    print("The palindromes are:", palindromes.getData()[::-1])
+    print("The non-palindromes are:", nonPalindromeStr)
+
+def santaClaus():
+    print("Final Exam Nodes")
+
+    # Question 1
+    s = node('S', None) # S
+    s.addNodeAfter('A') # S -> A
+    s.addNodeAfter('T') # S -> T -> A
+    s.addNodeAfter('N') # S -> N -> T -> A
+    s.addNodeAfter('A') # S -> A -> N -> T -> A
+    # Question 2
+    c = node('C', None) # C
+    c.addNodeAfter('S') # C -> S
+    c.addNodeAfter('U') # C -> U -> S
+    c.addNodeAfter('A') # C -> A -> U -> S
+    c.addNodeAfter('L') # C -> L -> A -> U -> S
+    
+    # Question 3
+    selection = s
+
+    # Question 4
+    selection = selection.getLink()
+    selection = selection.getLink()
+    selection = selection.getLink()
+    selection = selection.getLink()
+
+    # Question 5
+    selection.setLink(c)
 
 def testAdvancedIsPalindrome():
     print("Testing Advanced Is Palindrome")
